@@ -1,0 +1,22 @@
+html,
+body {
+  min-height: 100% !important;
+}
+
+.ProductsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 991px) {
+  .ProductsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ProductsContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
