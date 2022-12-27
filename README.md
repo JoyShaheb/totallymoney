@@ -1,4 +1,4 @@
-## Totally Money
+# Totally Money
 
 ![Totally Money](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hcdxehiu7mnffv4boveq.png)
 
@@ -10,10 +10,6 @@
 * npm install @reduxjs/toolkit react-redux
 * npm i json-server react-router-dom
 * npm i dayjs
-
-## features
-
-* dark mode / light mode
 
 ## Suggestions to improve
 

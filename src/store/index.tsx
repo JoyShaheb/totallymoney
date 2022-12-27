@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { uiSettingsReducer } from "./slices/uiSettings";
+import { uiSettingsReducer, themeSwitch } from "./slices/uiSettings";
 import { userSelectSliceReducer, fillForm } from "./slices/userSelectSlice";
 import { productsAPI } from "./API/productsAPI";
 import { setupListeners } from "@reduxjs/toolkit/query";
@@ -18,4 +18,4 @@ export const store = configureStore({
 
 setupListeners(store.dispatch);
 
-export { useGetProductsQuery, fillForm };
+export { useGetProductsQuery, fillForm,themeSwitch };
