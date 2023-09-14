@@ -9,3 +9,8 @@ export enum CardEnum {
   liquidCard = "liquid card",
   anywhereCard = "anywhere card",
 }
+
+export enum MuiThemeEnums {
+  DARK = "dark",
+  LIGHT = "light",
+}

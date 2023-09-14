@@ -1,4 +1,3 @@
-import React from "react";
 import errorImage from "../assets/error404.svg";
 import { Grid } from "@mui/material";
 

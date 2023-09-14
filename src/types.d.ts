@@ -1,4 +1,4 @@
-import { CardEnum } from "./enums";
+import { CardEnum } from "./types/enums";
 
 export interface iProductCardData {
   id: number;

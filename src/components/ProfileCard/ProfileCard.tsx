@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Card, CardContent, Typography, Stack } from "@mui/material";
-import { JobStatusEnum } from "../../enums";
+import { JobStatusEnum } from "../../types/enums";
 
 interface iProfileCard {
   name: string;

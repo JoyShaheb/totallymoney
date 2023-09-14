@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import EmptyForm from "../components/EmptyForm/EmptyForm";
 import {
@@ -11,9 +11,8 @@ import {
   FormControl,
   Select,
   Chip,
-  Grid,
+  SelectChangeEvent,
 } from "@mui/material";
-import { SelectChangeEvent } from "@mui/material/Select";
 import { useGetProductsQuery } from "../store/API/productsAPI";
 import Error404 from "./Error404";
 
@@ -22,8 +21,7 @@ const CardSelectionPage = () => {
   const { eligibility } = userSelect;
   const [selection, setSelection] = useState<string[]>([]);
   const [credits, setCredits] = useState<number>(0);
-  // @ts-ignore
-  const { data, error, isLoading } = useGetProductsQuery();
+  const { data, error, isLoading } = useGetProductsQuery("");
 
   useEffect(() => {
     if (!isLoading && !error && data) {

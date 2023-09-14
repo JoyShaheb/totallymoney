@@ -1,5 +1,5 @@
 import { createSlice, createAction } from "@reduxjs/toolkit";
-import { JobStatusEnum, CardEnum } from "../../enums";
+import { JobStatusEnum, CardEnum } from "../../types/enums";
 
 export const getEligibility = createAction("app/getEligibility");
 

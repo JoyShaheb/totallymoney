@@ -1,4 +1,3 @@
-import React from "react";
 import { Grid, Stack, Skeleton, Typography, Button } from "@mui/material";
 import CardComponent from "../components/Common/CardComponent";
 import { useGetProductsQuery } from "../store";
@@ -9,8 +8,7 @@ import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 
 const Products = () => {
-  // @ts-ignore
-  const { data, error, isLoading } = useGetProductsQuery();
+  const { data, error, isLoading } = useGetProductsQuery("");
 
   const navigate = useNavigate();
 

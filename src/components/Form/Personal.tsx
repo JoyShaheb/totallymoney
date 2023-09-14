@@ -3,7 +3,7 @@ import { Button, Stack } from "@mui/material";
 import Input from "../Common/Input";
 import { useForm, SubmitHandler } from "react-hook-form";
 import InputSelect from "../Common/InputSelect";
-import { JobStatusEnum } from "../../enums";
+import { JobStatusEnum } from "../../types/enums";
 import { useSelector, useDispatch } from "react-redux";
 import { fillForm } from "../../store";
 import { useNavigate } from "react-router-dom";

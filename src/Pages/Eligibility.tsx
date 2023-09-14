@@ -1,4 +1,3 @@
-import React from "react";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
 import { Stack, Typography, Button } from "@mui/material";
 import { useSelector } from "react-redux";
