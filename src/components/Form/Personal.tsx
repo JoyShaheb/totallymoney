@@ -21,6 +21,7 @@ const Personal = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
   const dispatch = useDispatch();
 
@@ -86,7 +87,10 @@ const Personal = () => {
             Submit
           </Button>
           <Button
-            onClick={() => dispatch(resetForm)}
+            onClick={() => {
+              dispatch(resetForm);
+              reset();
+            }}
             fullWidth
             type="button"
             variant="contained"

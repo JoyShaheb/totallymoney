@@ -46,15 +46,16 @@ const InputSelect: FC<iInputSelect> = ({
         label={label}
         onChange={handleChange}
       >
-        {options?.map((option: any) => (
-          <MenuItem key={nanoid()} value={option?.value}>
-            {option?.label}
-          </MenuItem>
-        ))}
-        {options?.length === 0 && (
+        {options?.length === 0 ? (
           <MenuItem key={nanoid()} value={""}>
             No Options
           </MenuItem>
+        ) : (
+          options?.map((option: any) => (
+            <MenuItem key={nanoid()} value={option?.value}>
+              {option?.label}
+            </MenuItem>
+          ))
         )}
       </Select>
       <FormHelperText id="my-helper-text">{helperText}</FormHelperText>
