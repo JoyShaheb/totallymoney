@@ -1,35 +1,33 @@
 import { createSlice, createAction } from "@reduxjs/toolkit";
 import { JobStatusEnum, CardEnum } from "../../enums";
 
-// @ts-ignore
-const localStoreData = JSON.parse(localStorage.getItem("userSelect")) || {};
 export const getEligibility = createAction("app/getEligibility");
+
+interface IUserSelect {
+  name: string;
+  salary: string;
+  job: string;
+  location: string;
+  eligibility: CardEnum[];
+}
+
+const initialState: IUserSelect = {
+  name: "",
+  salary: "",
+  job: "",
+  location: "",
+  eligibility: [],
+};
 
 export const userSelectSlice = createSlice({
   name: "userSelect",
-  initialState: {
-    name: localStoreData?.name || "",
-    salary: localStoreData?.salary || "",
-    job: localStoreData?.job || "",
-    location: localStoreData?.location || "",
-    eligibility: localStoreData?.eligibility || [],
-  },
+  initialState,
   reducers: {
     fillForm: (state, action) => {
       state.name = action.payload.name;
       state.salary = action.payload.salary;
       state.job = action.payload.job;
       state.location = action.payload.location;
-
-      localStorage.setItem(
-        "userSelect",
-        JSON.stringify({
-          name: action.payload.name,
-          salary: action.payload.salary,
-          job: action.payload.job,
-          location: action.payload.location,
-        })
-      );
     },
   },
   extraReducers: (builder) => {
@@ -49,14 +47,6 @@ export const userSelectSlice = createSlice({
       } else {
         state.eligibility = [CardEnum.anywhereCard];
       }
-
-      localStorage.setItem(
-        "userSelect",
-        JSON.stringify({
-          ...state,
-          eligibility: state.eligibility,
-        })
-      );
     });
   },
 });

@@ -5,17 +5,36 @@ import { productsAPI } from "./API/productsAPI";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { useGetProductsQuery } from "./API/productsAPI";
 
+// redux persist
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedUISettingsReducer = persistReducer(
+  persistConfig,
+  uiSettingsReducer
+);
+const persistedUserSelectReducer = persistReducer(
+  persistConfig,
+  userSelectSliceReducer
+);
+
 export const store = configureStore({
   reducer: {
-    uiSettings: uiSettingsReducer,
-    userSelect: userSelectSliceReducer,
+    uiSettings: persistedUISettingsReducer,
+    userSelect: persistedUserSelectReducer,
     [productsAPI.reducerPath]: productsAPI.reducer,
   },
-  middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(productsAPI.middleware);
-  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(productsAPI.middleware),
 });
 
 setupListeners(store.dispatch);
+export type RootState = ReturnType<typeof store.getState>;
+export const persistedStore = persistStore(store);
 
 export { useGetProductsQuery, fillForm, themeSwitch };

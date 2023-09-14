@@ -21,3 +21,8 @@ This project is polised and complete as of September 18th, 2023. I am happy with
 * storybook
 * we can implement a database where we can store email of the users, and later on, we can use those emails to promote the company.
 * we can dockerize the application and deploy it to a server.
+
+## make it better
+
+* eslint, prettier, husky, lint-staged, pre-commit
+* redux-perist

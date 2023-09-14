@@ -1,22 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// @ts-ignore
-const localStoreData = JSON.parse(localStorage.getItem("uiSettings")) || {};
+export interface IUiSettings {
+  theme: "dark" | "light";
+}
+
+const initialState: IUiSettings = {
+  theme: "dark",
+};
 
 export const uiSettings = createSlice({
   name: "uiSettings",
-  initialState: {
-    theme: localStoreData.theme || "dark",
-  },
+  initialState,
   reducers: {
     themeSwitch: (state, action) => {
       state.theme = action.payload;
-      localStorage.setItem(
-        "uiSettings",
-        JSON.stringify({
-          theme: action.payload,
-        })
-      );
     },
   },
   extraReducers: (builder) => {},
