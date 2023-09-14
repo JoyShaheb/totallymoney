@@ -2,6 +2,10 @@
 
 ![Totally Money](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hcdxehiu7mnffv4boveq.png)
 
+## outcome?
+
+This project is polised and complete as of September 18th, 2023. I am happy with the outcome and I am looking forward to improve it in the future.
+
 ## Project Setup
 
 * npx create-react-app . --template typescript

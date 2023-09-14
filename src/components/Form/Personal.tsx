@@ -25,7 +25,7 @@ const Personal = () => {
   } = useForm();
   const dispatch = useDispatch();
 
-  const { userSelect } = useSelector((state:any) => state);
+  const { userSelect } = useSelector((state: any) => state);
   console.log(userSelect);
 
   const onSubmit: SubmitHandler<iPersonalInput> = (data: any) => {

@@ -14,7 +14,7 @@ export const uiSettings = createSlice({
       localStorage.setItem(
         "uiSettings",
         JSON.stringify({
-          theme: action.payload
+          theme: action.payload,
         })
       );
     },

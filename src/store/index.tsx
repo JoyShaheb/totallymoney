@@ -18,4 +18,4 @@ export const store = configureStore({
 
 setupListeners(store.dispatch);
 
-export { useGetProductsQuery, fillForm,themeSwitch };
+export { useGetProductsQuery, fillForm, themeSwitch };

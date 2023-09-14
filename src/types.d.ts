@@ -8,4 +8,4 @@ export interface iProductCardData {
   purchaseOffer: number;
   credit: number;
   info: string;
-};
+}

@@ -27,7 +27,7 @@ const InputSelect: FC<iInputSelect> = ({
   helperText,
   placeholder,
   options,
-  defaultValue
+  defaultValue,
 }) => {
   const [value, setValue] = React.useState(defaultValue);
 
