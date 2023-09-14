@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ThemeTypes } from "../../types/types";
+import { MuiThemeEnums } from "../../types/enums";
 
 export interface IUiSettings {
-  theme: "dark" | "light";
+  theme: ThemeTypes;
 }
 
 const initialState: IUiSettings = {
-  theme: "dark",
+  theme: MuiThemeEnums.DARK,
 };
 
 export const uiSettings = createSlice({
@@ -16,7 +18,6 @@ export const uiSettings = createSlice({
       state.theme = action.payload;
     },
   },
-  extraReducers: (builder) => {},
 });
 
 export const uiSettingsReducer = uiSettings.reducer;

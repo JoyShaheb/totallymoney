@@ -1,13 +1,12 @@
-import React from "react";
 import { Button, Stack } from "@mui/material";
 import Input from "../Common/Input";
 import { useForm, SubmitHandler } from "react-hook-form";
 import InputSelect from "../Common/InputSelect";
 import { JobStatusEnum } from "../../types/enums";
 import { useSelector, useDispatch } from "react-redux";
-import { fillForm } from "../../store";
+import { RootState, fillForm } from "../../store";
 import { useNavigate } from "react-router-dom";
-import { getEligibility } from "../../store/slices/userSelectSlice";
+import { getEligibility, resetForm } from "../../store/slices/userSelectSlice";
 
 interface iPersonalInput {
   name?: string;
@@ -25,10 +24,9 @@ const Personal = () => {
   } = useForm();
   const dispatch = useDispatch();
 
-  const { userSelect } = useSelector((state: any) => state);
-  console.log(userSelect);
+  const { userSelect } = useSelector((state: RootState) => state);
 
-  const onSubmit: SubmitHandler<iPersonalInput> = (data: any) => {
+  const onSubmit: SubmitHandler<iPersonalInput> = (data: iPersonalInput) => {
     dispatch(fillForm(data));
     dispatch(getEligibility());
     navigate("/eligibility");
@@ -46,16 +44,13 @@ const Personal = () => {
           }}
         >
           <Input
-            type="text"
             label="Name *"
-            variant="outlined"
             placeholder="Write your full name here"
             register={register("name", { required: true })}
             error={errors.name ? true : false}
             helperText={errors.name ? "This field is required" : ""}
             defaultValue={userSelect.name}
           />
-
           <InputSelect
             label="Job Status *"
             register={register("job", { required: true })}
@@ -72,7 +67,6 @@ const Personal = () => {
           <Input
             type="number"
             label="Salary *"
-            variant="outlined"
             placeholder="Annual Amount ($)"
             register={register("salary", { required: true })}
             error={errors.salary ? true : false}
@@ -81,17 +75,24 @@ const Personal = () => {
           />
 
           <Input
-            type="text"
             label="Location"
-            variant="outlined"
             placeholder="Your Location"
             register={register("location")}
             error={errors.location ? true : false}
             helperText={errors.location ? "This field is required" : ""}
             defaultValue={userSelect.location}
           />
-          <Button fullWidth type="submit" variant="contained" color="primary">
+          <Button fullWidth type="submit" variant="contained" color="success">
             Submit
+          </Button>
+          <Button
+            onClick={() => dispatch(resetForm)}
+            fullWidth
+            type="button"
+            variant="contained"
+            color="error"
+          >
+            Reset
           </Button>
         </Stack>
       </Stack>

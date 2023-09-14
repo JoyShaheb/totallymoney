@@ -5,7 +5,7 @@ import { nanoid } from "@reduxjs/toolkit";
 interface iInputProps {
   defaultValue?: string;
   label: string;
-  variant: "standard" | "filled" | "outlined";
+  variant?: "standard" | "filled" | "outlined";
   placeholder?: string;
   error?: boolean;
   helperText?: string;
@@ -15,8 +15,8 @@ interface iInputProps {
 
 const Input: FC<iInputProps> = ({
   label,
-  variant,
   placeholder,
+  variant,
   error,
   helperText,
   register,
@@ -27,12 +27,12 @@ const Input: FC<iInputProps> = ({
     <TextField
       fullWidth
       defaultValue={defaultValue}
-      type={type}
+      type={type ? type : "text"}
       error={error}
       id={nanoid()}
       helperText={helperText}
       label={label}
-      variant={variant}
+      variant={variant ? variant : "outlined"}
       placeholder={placeholder}
       {...register}
     />

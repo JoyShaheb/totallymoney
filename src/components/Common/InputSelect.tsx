@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import {
-  Box,
   InputLabel,
   MenuItem,
   FormControl,

@@ -29,6 +29,13 @@ export const userSelectSlice = createSlice({
       state.job = action.payload.job;
       state.location = action.payload.location;
     },
+    resetForm: (state) => {
+      state.name = "";
+      state.salary = "";
+      state.job = "";
+      state.location = "";
+      state.eligibility = [];
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getEligibility, (state, action) => {
@@ -51,5 +58,5 @@ export const userSelectSlice = createSlice({
   },
 });
 
-export const { fillForm } = userSelectSlice.actions;
+export const { fillForm, resetForm } = userSelectSlice.actions;
 export const userSelectSliceReducer = userSelectSlice.reducer;
