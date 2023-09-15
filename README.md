@@ -24,7 +24,10 @@ This project is polised and complete as of September 18th, 2023. I am happy with
 
 ## make it better
 
-* eslint, prettier, husky, lint-staged, pre-commit
+* eslint
+* ✅ prettier, husky, lint-staged, pre-commit
 * ✅ redux-perist
-* add react-toastify
-* reset button for the form, and make it work
+* ❓ add react-toastify
+* ✅ reset button for the form, and make it work
+* separate the backend from the frontend and make the api work
+* separate the ui and the logic for isLoading and isError

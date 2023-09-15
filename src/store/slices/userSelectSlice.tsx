@@ -33,17 +33,18 @@ export const userSelectSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getEligibility, (state) => {
-      if (state.job === JobStatusEnum.Student) {
-        if (+state.salary! > 16000) {
-          state.eligibility = [
-            CardEnum.liquidCard,
-            CardEnum.anywhereCard,
-            CardEnum.studentCard,
-          ];
-        } else {
-          state.eligibility = [CardEnum.studentCard, CardEnum.anywhereCard];
-        }
-      } else if (+state.salary! > 16000) {
+      const isStudent = state.job === JobStatusEnum.Student;
+      const isSalaryAbove16000 = +state.salary! > 16000;
+
+      if (isStudent && isSalaryAbove16000) {
+        state.eligibility = [
+          CardEnum.liquidCard,
+          CardEnum.anywhereCard,
+          CardEnum.studentCard,
+        ];
+      } else if (isStudent) {
+        state.eligibility = [CardEnum.studentCard, CardEnum.anywhereCard];
+      } else if (isSalaryAbove16000) {
         state.eligibility = [CardEnum.anywhereCard, CardEnum.liquidCard];
       } else {
         state.eligibility = [CardEnum.anywhereCard];

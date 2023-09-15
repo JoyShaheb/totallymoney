@@ -12,6 +12,8 @@ import {
   Typography,
   Box,
   AppBar,
+  Stack,
+  FormControlLabel,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
@@ -19,9 +21,7 @@ import { Container } from "@mui/system";
 import { useSelector, useDispatch } from "react-redux";
 
 import { styled } from "@mui/material/styles";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch, { SwitchProps } from "@mui/material/Switch";
-import Stack from "@mui/material/Stack";
 import { themeSwitch } from "../../store";
 
 interface iNavbarProps {
