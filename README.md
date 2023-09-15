@@ -25,6 +25,6 @@ This project is polised and complete as of September 18th, 2023. I am happy with
 ## make it better
 
 * eslint, prettier, husky, lint-staged, pre-commit
-* redux-perist
+* ✅ redux-perist
 * add react-toastify
-* reset button for the form
+* reset button for the form, and make it work

@@ -33,6 +33,11 @@ const Personal = () => {
     navigate("/eligibility");
   };
 
+  const onReset = () => {
+    reset();
+    dispatch(resetForm());
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Stack direction="row" justifyContent="center">
@@ -47,14 +52,19 @@ const Personal = () => {
           <Input
             label="Name *"
             placeholder="Write your full name here"
-            register={register("name", { required: true })}
+            register={register("name", {
+              required: true,
+              value: userSelect.name,
+            })}
             error={errors.name ? true : false}
             helperText={errors.name ? "This field is required" : ""}
-            defaultValue={userSelect.name}
           />
           <InputSelect
             label="Job Status *"
-            register={register("job", { required: true })}
+            register={register("job", {
+              required: true,
+              value: userSelect.job,
+            })}
             error={errors.job ? true : false}
             helperText={errors.job ? "This field is required" : ""}
             placeholder="Please Select your occupation"
@@ -63,36 +73,39 @@ const Personal = () => {
               { value: JobStatusEnum.PartTime, label: JobStatusEnum.PartTime },
               { value: JobStatusEnum.Student, label: JobStatusEnum.Student },
             ]}
-            defaultValue={userSelect.job}
+            value={userSelect.job}
+            onChange={(value: string) => {
+              dispatch(fillForm({ job: value }));
+            }}
           />
           <Input
             type="number"
             label="Salary *"
             placeholder="Annual Amount ($)"
-            register={register("salary", { required: true })}
+            register={register("salary", {
+              required: true,
+              value: userSelect.salary,
+            })}
             error={errors.salary ? true : false}
             helperText={errors.salary ? "This field is required" : ""}
-            defaultValue={userSelect.salary}
           />
-
           <Input
             label="Location"
             placeholder="Your Location"
-            register={register("location")}
+            register={register("location", {
+              required: false,
+              value: userSelect.location,
+            })}
             error={errors.location ? true : false}
             helperText={errors.location ? "This field is required" : ""}
-            defaultValue={userSelect.location}
           />
           <Button fullWidth type="submit" variant="contained" color="success">
             Submit
           </Button>
           <Button
-            onClick={() => {
-              dispatch(resetForm);
-              reset();
-            }}
+            onClick={onReset}
             fullWidth
-            type="button"
+            type="reset"
             variant="contained"
             color="error"
           >

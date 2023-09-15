@@ -8,15 +8,22 @@ import {
   FormHelperText,
 } from "@mui/material";
 import { SelectChangeEvent } from "@mui/material/Select";
+import { UseFormRegisterReturn } from "react-hook-form";
+
+interface IOption {
+  value: string;
+  label: string;
+}
 
 interface iInputSelect {
   label?: string;
-  register?: any;
+  register?: UseFormRegisterReturn;
   error?: boolean;
   helperText?: string;
   placeholder?: string;
-  options?: any;
-  defaultValue?: any;
+  options?: IOption[];
+  value?: string;
+  onChange: (value: string) => void;
 }
 
 const InputSelect: FC<iInputSelect> = ({
@@ -26,13 +33,11 @@ const InputSelect: FC<iInputSelect> = ({
   helperText,
   placeholder,
   options,
-  defaultValue,
+  value,
+  onChange,
 }) => {
-  const [value, setValue] = React.useState(defaultValue);
-
-  const handleChange = (event: SelectChangeEvent<string>) => {
-    setValue(event.target.value);
-  };
+  const handleChange = (event: SelectChangeEvent<string>) =>
+    onChange(event.target.value);
 
   return (
     <FormControl fullWidth error={error}>
@@ -51,7 +56,7 @@ const InputSelect: FC<iInputSelect> = ({
             No Options
           </MenuItem>
         ) : (
-          options?.map((option: any) => (
+          options?.map((option: IOption) => (
             <MenuItem key={nanoid()} value={option?.value}>
               {option?.label}
             </MenuItem>

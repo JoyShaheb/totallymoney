@@ -29,16 +29,10 @@ export const userSelectSlice = createSlice({
       state.job = action.payload.job;
       state.location = action.payload.location;
     },
-    resetForm: (state) => {
-      state.name = "";
-      state.salary = "";
-      state.job = "";
-      state.location = "";
-      state.eligibility = [];
-    },
+    resetForm: () => initialState,
   },
   extraReducers: (builder) => {
-    builder.addCase(getEligibility, (state, action) => {
+    builder.addCase(getEligibility, (state) => {
       if (state.job === JobStatusEnum.Student) {
         if (+state.salary! > 16000) {
           state.eligibility = [

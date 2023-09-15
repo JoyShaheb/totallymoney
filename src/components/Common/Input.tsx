@@ -3,7 +3,6 @@ import { TextField } from "@mui/material";
 import { nanoid } from "@reduxjs/toolkit";
 
 interface iInputProps {
-  defaultValue?: string;
   label: string;
   variant?: "standard" | "filled" | "outlined";
   placeholder?: string;
@@ -21,12 +20,10 @@ const Input: FC<iInputProps> = ({
   helperText,
   register,
   type,
-  defaultValue,
 }) => {
   return (
     <TextField
       fullWidth
-      defaultValue={defaultValue}
       type={type ? type : "text"}
       error={error}
       id={nanoid()}
