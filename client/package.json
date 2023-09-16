@@ -33,9 +33,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start:server": "json-server --watch db.json --port 3005",
-    "prepare": "husky install",
     "format": "prettier --write \"src/**/*.{js,jsx,json,md,ts,tsx}\"",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "prepare": "cd .. && husky install client/.husky"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
