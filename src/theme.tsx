@@ -11,6 +11,5 @@ const lightTheme = createTheme({
   },
 });
 
-export const theme = (theme: any) => {
-  return theme === "dark" ? darkTheme : lightTheme;
-};
+export const theme = (theme: any) =>
+  theme === "dark" ? darkTheme : lightTheme;
