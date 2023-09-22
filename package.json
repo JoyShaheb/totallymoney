@@ -35,7 +35,7 @@
     "start:server": "json-server --watch db.json --port 3005",
     "format": "prettier --write \"src/**/*.{js,jsx,json,md,ts,tsx}\"",
     "lint-staged": "lint-staged",
-    "prepare": "cd .. && husky install client/.husky"
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
