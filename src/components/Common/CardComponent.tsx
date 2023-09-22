@@ -1,16 +1,9 @@
 import { FC } from "react";
 import { Card, CardContent, Typography, Stack } from "@mui/material";
+import { iProductData } from "../../types/interface";
 
-interface iCardComponent {
-  title: string;
-  description: string;
-  apr: number;
-  balanceTransfer: number;
-  purchaseOffer: number;
-  credit: number;
-}
-
-const CardComponent: FC<iCardComponent> = ({
+const CardComponent: FC<iProductData> = ({
+  id,
   title,
   description,
   apr,
